@@ -1,19 +1,25 @@
 {
-  "name": "cloudflare-vectorize-rag-demo",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "deploy": "wrangler deploy",
-    "dev": "wrangler dev",
-    "start": "wrangler dev",
-    "test": "vitest",
-    "cf-typegen": "wrangler types"
-  },
-  "devDependencies": {
-    "@cloudflare/vitest-plugin": "^1.0.0",
-    "@types/node": "^26.6.5",
-    "typescript": "^5.5.2",
-    "vitest": "~4.1.0",
-    "wrangler": "^4.151.0"
-  }
+	"name": "cloudflare-vectorize-rag-demo",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"deploy": "wrangler deploy",
+		"dev": "wrangler dev",
+		"start": "wrangler dev",
+		"test": "vitest run",
+		"cf-typegen": "wrangler types",
+		"test:watch": "vitest",
+		"typecheck": "tsc --noEmit -p . && tsc --noEmit -p test",
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"check": "npm run format:check && npm run typecheck && npm test"
+	},
+	"devDependencies": {
+		"@cloudflare/vitest-plugin": "^1.0.0",
+		"@types/node": "^26.6.5",
+		"prettier": "^3.9.10",
+		"typescript": "^5.5.2",
+		"vitest": "~4.1.0",
+		"wrangler": "^4.151.0"
+	}
 }

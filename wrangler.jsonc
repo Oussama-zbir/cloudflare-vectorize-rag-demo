@@ -8,9 +8,22 @@
 	"main": "src/index.ts",
 	"compatibility_date": "2026-10-06",
 	"observability": {
-		"enabled": true
+		"enabled": true,
 	},
-	"upload_source_maps": true
+	"upload_source_maps": true,
+	// Workers AI and Vectorize have no local simulator: `wrangler dev` proxies both to your Cloudflare account.
+	"ai": {
+		"binding": "AI",
+		"remote": true,
+	},
+	// Pre-created with: npx wrangler vectorize create rag-demo-index --dimensions=768 --metric=cosine
+	"vectorize": [
+		{
+			"binding": "VECTORIZE",
+			"index_name": "rag-demo-index",
+			"remote": true,
+		},
+	],
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
